@@ -1,0 +1,38 @@
+.form_search {
+    display: flex;
+    margin: 0 auto;
+    padding: 0;
+    width: 400px;
+    flex-direction: column;
+    border: 1px solid gray;
+    padding: 30px;
+    border-radius: 6px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-bottom: 12px;
+}
+
+.field {
+    width: 400px;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 6px;
+    border: 2px solid grey;
+    box-shadow: 1px 2px 2px 1px;
+}
+
+.error {
+    color: red;
+}
+
+.btn {
+    width: fit-content;
+    margin: auto;
+    color: rgb(74, 74, 69);
+    background-color: rgb(200, 214, 4);
+    ;
+}

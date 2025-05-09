@@ -1,0 +1,16 @@
+.item {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    padding: 30px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border: 2px solid grey;
+    box-shadow: 1px 2px 2px 1px;
+}
+
+.btn {
+    color: rgb(74, 74, 69);
+    background-color: rgb(200, 214, 4);
+}
