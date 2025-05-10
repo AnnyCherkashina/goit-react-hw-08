@@ -1,18 +1,21 @@
-import { Triangle } from "react-loader-spinner";
+import s from "./Loader.module.css"
+import { TailSpin } from "react-loader-spinner"
 
-const Loader = () => {
+function Loader() {
     return (
-        <div>
-            <Triangle
+        <div className={s.loader}>
+            <TailSpin
                 visible={true}
                 height="80"
                 width="80"
-                color="#ff0000"
-                ariaLabel="triangle-loading"
+                color="#4fa94d" ariaLabel="tail-spin-loading"
+                radius="1"
                 wrapperStyle={{}}
                 wrapperClass=""
             />
         </div>
-    );
-};
-export default Loader;
+
+    )
+}
+
+export default Loader

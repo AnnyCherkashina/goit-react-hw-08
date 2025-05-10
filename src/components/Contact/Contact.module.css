@@ -1,16 +1,26 @@
 .item {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid gray;
-    padding: 30px;
-    border-radius: 6px;
-    margin-bottom: 20px;
+    min-width: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgb(128 128 128 / 65%);
+    border: 2px solid grey;
+    box-shadow: 1px 2px 2px 1px;
 }
 
 .btn {
-    color: rgb(255, 255, 255);
-    background-color: #1a0000;
-    padding: 8px;
-    border-radius: 6px;
+    display: flex;
+    padding: 5px 10px;
+    margin-left: auto;
+    font-size: 18px;
+    border-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: rgb(73, 70, 70);
+}
+
+.phone {
+    text-align: start;
 }

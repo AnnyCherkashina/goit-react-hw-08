@@ -1,20 +1,21 @@
-import { useDispatch } from "react-redux";
-import css from "./Contact.module.css";
-import { deleteContact } from "../../redux/contacts/operations";
+import s from "./Contact.module.css"
+import { MdAccountCircle } from "react-icons/md"
+import { FaPhone } from "react-icons/fa6"
+import { useDispatch } from "react-redux"
+import { deleteContactThunk } from "../../redux/contacts/operations"
 
-const Contact = ({ contact }) => {
-    const dispatch = useDispatch();
-    const { id, name, number } = contact;
+
+function Contact({ contact }) {
+    const dispatch = useDispatch()
+    const { id, name, number } = contact
 
     return (
-        <li className={css.item}>
-            <h2> {name}</h2>
-            <p>{number}</p>
-            <button className={css.btn} onClick={() => dispatch(deleteContact(id))}>
-                Delete
-            </button>
+        <li className={s.item}>
+            <h3 className={s.card}> <MdAccountCircle /> {name}</h3>
+            <p className={s.phone}> <FaPhone /> {number}</p>
+            <button onClick={() => dispatch(deleteContactThunk(id))} className={s.btn}>Delete</button>
         </li>
-    );
-};
+    )
+}
 
-export default Contact;
+export default Contact

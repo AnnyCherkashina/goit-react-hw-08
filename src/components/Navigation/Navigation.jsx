@@ -1,12 +1,13 @@
-import { NavLink } from 'react-router-dom';
+import s from "./Navigation.module.css"
+import { NavLink } from "react-router-dom"
 
-const Navigation = () => {
+
+function Navigation() {
     return (
-        <nav>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/contacts">Contacts</NavLink>
-        </nav>
-    );
-};
+        <div className={s.wrap}>
+            <NavLink to='/'>Home</NavLink>
+        </div>
+    )
+}
 
-export default Navigation;
+export default Navigation

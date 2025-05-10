@@ -1,46 +1,43 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { authApi } from "../../config/Api_auth";
+import { createAsyncThunk } from '@reduxjs/toolkit'
+import axios from 'axios'
+import toast from 'react-hot-toast'
 
-// axios.defaults.baseURL = `https://66224c7827fcd16fa6c96b50.mockapi.io/`;
+axios.defaults.baseURL = 'https://connections-api.goit.global/'
 
-//завантаження даних
+const msgOptions = {
+    icon: '👏',
+    style: {
+        borderRadius: '10px',
+        background: '#333',
+        color: '#fff',
+    },
+}
 
-export const fetchContacts = createAsyncThunk(
-    "contacts/fetchAll",
-    async (_, thunkAPI) => {
-        try {
-            const { data } = await authApi.get(`contacts`);
-            return data;
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error.message);
-        }
+export const fetchContactsThunk = createAsyncThunk('contacts/fetchAll', async (_, thunkAPI) => {
+    try {
+        const { data } = await axios.get('contacts')
+        return data
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.message)
     }
-);
+})
 
-//видалення даних
-
-export const deleteContact = createAsyncThunk(
-    "contacts/deleteContact",
-    async (id, thunkAPI) => {
-        try {
-            const { data } = await authApi.delete(`contacts/${id}`);
-            return data.id;
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error.message);
-        }
+export const addContactThunk = createAsyncThunk('contacts/addContact', async (contact, thunkAPI) => {
+    try {
+        const { data } = await axios.post('contacts', contact)
+        toast('You have succesfully added new contact', msgOptions);
+        return data
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.message)
     }
-);
+})
 
-//додавання даних
-
-export const addContact = createAsyncThunk(
-    "contacts/addContact",
-    async (contact, thunkAPI) => {
-        try {
-            const { data } = await authApi.post(`contacts`, contact);
-            return data;
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error.message);
-        }
+export const deleteContactThunk = createAsyncThunk('contacts/deleteContact', async (id, thunkAPI) => {
+    try {
+        const { data } = await axios.delete(`contacts/${id}`, id)
+        toast('You have succesfully deleted contact', msgOptions);
+        return data.id
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.message)
     }
-);
+})

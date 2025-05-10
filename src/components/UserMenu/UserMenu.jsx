@@ -1,23 +1,22 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { selectUser } from '../../redux/auth/selectors';
-import { logoutThunk } from '../../redux/auth/operations';
+import s from "./UserMenu.module.css"
+import { NavLink, useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { logoutThunk } from "../../redux/auth/operations"
 
-const UserMenu = () => {
-    const dispatch = useDispatch();
-    const user = useSelector(selectUser);
-
-    const handleLogout = () => {
-        dispatch(logoutThunk());
-    };
+function UserMenu() {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     return (
-        <div>
-            <p>Welcome, {user.email}</p>
-            <button type="button" onClick={handleLogout}>
-                Logout
-            </button>
-        </div>
-    );
-};
+        <div className={s.wrap}>
+            <NavLink to="/contacts">PhoneBook</NavLink>
+            <button className={s.btn} onClick={() => {
+                navigate('/')
+                dispatch(logoutThunk())
 
-export default UserMenu;
+            }}>Log out</button>
+        </div>
+    )
+}
+
+export default UserMenu
